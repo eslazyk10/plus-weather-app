@@ -6,9 +6,179 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://kit.fontawesome.com/0c8a1efbce.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div id="app"></div>
+    <div class="container-1">
+        <div class="row">
     
+            <form>
+                <div class="col-3">
+                    <input type="text" placeholder="Enter city name here" class="form-control shadow-sm"
+                        id="search-text-input" />
+    
+                    <button class="form-btn" id="search-city-btn">
+                        Search City
+                    </button>
+    
+                    <button class="btn-current-city" id="current-city">
+                        Current Location
+                    </button>
+                </div>
+    
+    
+    
+            </form>
+            <h1>
+                <div id="city-name-input">
+                    Nashville
+                </div>
+            </h1>
+            <h3 class="current">
+                <div>
+                    Last Updated:
+                    <span id="day-time-input">
+                        Sunday
+                    </span>
+                </div>
+                <div id="current-condition-input">
+                    Partly Cloudy
+                </div>
+            </h3>
+            <h2>
+                <div class="row">
+                    <div class="col-6">
+                        <span id="condition-icon">
+                            ⛅
+                        </span>
+                        <span class="temperture" id="temp-input">66</span>
+                        <span class="units1">
+                            <a href="#" id="current-temp-ferenheit">°F/</a>
+                            <a href="#" id="current-temp-celcius">°C</a>
+                        </span>
+                    </div>
+                </div>
+            </h2>
+            <h3>
+                <div class="row" id="weather-info">
+                    <div class="col-6">
+                        <ul>
+                            <li>
+                                Feels like: <span id="real-feel-input">60</span>°
+                            </li>
+                            <li>
+                                Humidity: <span id="humidity-input">30</span>%
+                            </li>
+                            <li>
+                                Wind Speed: <span id="wind-speed-input">8</span> mph
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </h3>
+            <ul>
+                <div class="wrapper">
+                    <div class="row">
+                        <div class="col">
+                            <li class="first">
+                                <strong><span id="first-day">Monday</span>
+                                    <span class="weather-condition"><i class="fas fa-sun"></i></span>
+    
+                                    <span id="first-day-temp">68°</span>
+                                </strong>
+                                <span class="units">
+                                    <a href="#" id="future-temp-ferenheit">°F/</a>
+                                    <a href="#" id="future-temp-celcius">°C</a>
+                                </span>
+                                <br>
+                                <span id="first-day-chance-precip">Precipitation 0%</span>
+                            </li>
+                        </div>
+                        <div class="col">
+                            <li class="second">
+                                <strong><span id="second-day">Tuesday</span>
+                                    <span class="weather-condition"><i class="fas fa-cloud"></i></span>
+    
+                                    <span id="second-day-temp">66°</span>
+                                </strong>
+                                <span class="units">
+                                    <a href="#" id="future-temp-ferenheit">°F/</a>
+                                    <a href="#" id="future-temp-celcius">°C</a>
+                                </span>
+                                <br>
+                                <span id="second-day-chance-precip">Precipitation 6%</span>
+                            </li>
+                        </div>
+                        <div class="col">
+                            <li class="third">
+                                <strong><span id="third-day">Wednesday</span>
+                                    <span class="weather-condition"><i class="fas fa-sun"></i></span>
+    
+                                    <span id="third-day-temp">68°</span>
+                                </strong>
+                                <span class="units">
+                                    <a href="#" id="future-temp-ferenheit">°F/</a>
+                                    <a href="#" id="future-temp-celcius">°C</a>
+                                </span>
+                                <br>
+                                <span id="third-day-chance-precip">Precipitation 0%</span>
+                            </li>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <li class=fourth>
+                                    <strong>
+                                        <span id="fourth-day">Thursday</span>
+                                        <span class="weather-condition"><i class="fas fa-cloud-showers-heavy"></i></span>
+    
+                                        <span id="fouth-day-temp">63°</span>
+                                    </strong>
+                                    <span class="units">
+                                        <a href="#" id="future-temp-ferenheit">°F/</a>
+                                        <a href="#" id="future-temp-celcius">°C</a>
+                                    </span>
+                                    <br>
+                                    <span id="fourth-day-chance-precip">Precipitation 80%</span>
+                                </li>
+                            </div>
+                            <div class="col">
+                                <li class="fifth">
+                                    <strong><span id="fifth-day">Friday</span>
+                                        <span class="weather-condition"><i class="fas fa-cloud-sun"></i></span>
+    
+                                        <span id="fifth-day-temp">72°</span>
+                                    </strong>
+                                    <span class="units">
+                                        <a href="#" id="future-temp-ferenheit">°F/</a>
+                                        <a href="#" id="future-temp-celcius">°C</a>
+                                    </span>
+                                    <br>
+                                    <span id="fifth-day-chance-precip">Precipitation 26%</span>
+                                </li>
+                            </div>
+                            <div class="col">
+                                <li class="sixth">
+                                    <strong><span id="sixth-day">Saturday</span>
+                                        <span class="weather-condition"><i class="fas fa-cloud-sun"></i></span>
+    
+                                        <span id="sixth-day-temp">70°</span>
+                                    </strong>
+                                    <span class="units">
+                                        <a href="#" id="future-temp-ferenheit">°F/</a>
+                                        <a href="#" id="future-temp-celcius">°C</a>
+                                    </span>
+                                    <br>
+                                    <span id="sixth-day-chance-precip">Precipitiation 50%</span>
+                                </li>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </ul>
+        </div>
     <script src="index.js"></script>
 </body>
 </html>
